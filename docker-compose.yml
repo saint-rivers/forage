@@ -29,8 +29,12 @@ services:
       - "6754:8080"
     entrypoint: [ "java","-jar","/root.jar" ]
     volumes:
-      - ./build/libs/ams-full-0.0.1-SNAPSHOT.jar:/root.jar
+      - ./build/libs/forage-0.0.1-SNAPSHOT.jar:/root.jar
       - /opt/resources/files:/opt/resources/files
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://db.forage.com:5432/forage_db
+      SPRING_DATASOURCE_USERNAME: serveradmin
+      SPRING_DATASOURCE_PASSWORD: server123
 #    env_file:
 #      - spring.prod.env
 
