@@ -14,7 +14,8 @@ spring:
 
 files:
   storage:
-    path: src/main/resources/uploads
-#    path: /opt/resources/files
+#    path: src/main/resources/uploads
+    path: /opt/resources/files
 server:
-  name: http://localhost:8080
+#  name: http://localhost:8080
+  name: http://110.74.194.123:6754
