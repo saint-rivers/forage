@@ -1,5 +1,7 @@
 package com.ksga.forage.service
 
+import com.ksga.forage.model.StoredFiles
+import com.ksga.forage.repository.StoredFilesRepository
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.core.io.Resource
 import org.springframework.core.io.UrlResource
@@ -18,7 +20,8 @@ class StorageException(_message: String) : RuntimeException(_message)
 @Service
 class FileServiceImpl(
     @Value("\${files.storage.path}")
-    private val storagePath: String
+    private val storagePath: String,
+    val filesRepository: StoredFilesRepository
 ) : FileService {
 
     var rootLocation: Path = Paths.get(storagePath)
@@ -42,6 +45,8 @@ class FileServiceImpl(
         val newName = "${UUID.randomUUID()}.${extension}"
         val path = rootLocation.resolve(newName)
         Files.copy(file.inputStream, path, StandardCopyOption.REPLACE_EXISTING)
+
+        filesRepository.save(StoredFiles(filename = newName))
 
         return newName
     }

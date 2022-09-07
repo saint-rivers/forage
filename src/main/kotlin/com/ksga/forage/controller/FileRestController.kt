@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.*
 
 @RestController
 @RequestMapping("/api/v1/files")
-class FileController(
+class FileRestController(
     val fileService: FileService,
     @Value("\${server.name}") val url: String,
     @Value("\${files.storage.path}") val storagePath: String,
