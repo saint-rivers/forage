@@ -1,8 +1,6 @@
 spring:
-  profiles:
-    active: default
   datasource:
-    url: jdbc:postgresql://localhost:5779/forage_db
+    url: jdbc:postgresql://db.forage.com:5432/forage_db
     username: serveradmin
     password: server123
   servlet:
@@ -14,6 +12,6 @@ spring:
 
 files:
   storage:
-    path: src/main/resources/uploads
+    path: /opt/resources/files
 server:
-  name: http://localhost:8080
+  name: http://110.74.194.123:6754

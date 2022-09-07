@@ -5,6 +5,7 @@ import com.ksga.forage.service.FileService
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.core.io.ClassPathResource
 import org.springframework.core.io.InputStreamResource
+import org.springframework.core.io.PathResource
 import org.springframework.core.io.Resource
 import org.springframework.http.HttpHeaders
 import org.springframework.http.MediaType
@@ -41,7 +42,8 @@ class FileRestController(
 
         // ClassPathResource will start from the src/main/resources directory
         // that's why we substring it
-        val imgFile = ClassPathResource("${storagePath.substring(19)}/${filename}")
+//        val imgFile = ClassPathResource("${storagePath.substring(19)}/${filename}")
+        val imgFile = PathResource("${storagePath}/${filename}")
 
         return ResponseEntity
             .ok()

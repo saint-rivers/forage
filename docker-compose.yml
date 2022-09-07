@@ -35,7 +35,7 @@ services:
       SPRING_DATASOURCE_URL: jdbc:postgresql://db.forage.com:5432/forage_db
       SPRING_DATASOURCE_USERNAME: serveradmin
       SPRING_DATASOURCE_PASSWORD: server123
-      file.storage.path: /opt/resources/files
+      SPRING_PROFILES_ACTIVE: prod
 #    env_file:
 #      - spring.prod.env
 
